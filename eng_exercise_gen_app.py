@@ -21,7 +21,7 @@ if uploaded_file is not None:
 
 if st.button('Сгенерировать упражнения'):
     st.write('Ждите!')
-    df = eeg.create_sentence(uploaded_file)
+    df = eeg.create_sentence(string_data)
     st.write(df)
     tasks = eeg.create_df(df)
     st.write(tasks)

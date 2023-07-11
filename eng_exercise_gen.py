@@ -17,15 +17,14 @@ model = api.load("glove-wiki-gigaword-200")
 # создаем класс
 class EngExerciseGen:
     # создаем датасет
-    def create_sentence(self, path):
+    def create_sentence(self, file):
         data = pd.DataFrame()
-        with open(path) as file:
-            for line in file:
-                line = line.strip()
-                if len(line)>0:
-                    doc = nlp(line)
-                    for sent in doc.sents:
-                        data.loc[len(data), 'raw'] = sent.text
+        for line in file:
+            line = line.strip()
+            if len(line)>0:
+                doc = nlp(line)
+                for sent in doc.sents:
+                    data.loc[len(data), 'raw'] = sent.text
         return data
 
     # выбор упражнения случайным образом    
@@ -155,7 +154,7 @@ class EngExerciseGen:
             row['object'] = row['raw']
             row['answer'] = row['raw']        
             row['description'] = 'Какое предложение верно?'
-            row['sent_ex'] = 'Вспомни текст и выбери предложение'
+            row['sent_ex'] = 'Вспомните текст и выберите предложение'
             row['result'] = []
             row['total'] = 0
         return row
