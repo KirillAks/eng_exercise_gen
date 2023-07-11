@@ -1,0 +1,10 @@
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0-py3-none-any.whl
+en-core-web-trf @ https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.5.0/en_core_web_trf-3.5.0-py3-none-any.whl
+gensim @ file:///C:/ci/gensim_1646825438310/work
+pandas @ file:///C:/b/abs_cdcgk91igc/croots/recipe/pandas_1663772960432/work
+spacy==3.5.3
+spacy-alignments==0.9.0
+spacy-legacy==3.0.12
+spacy-loggers==1.0.4
+spacy-transformers==1.2.5
+streamlit==1.24.0
