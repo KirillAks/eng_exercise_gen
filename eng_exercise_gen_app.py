@@ -21,8 +21,8 @@ if uploaded_file is not None:
 
 if st.button('Сгенерировать упражнения'):
     st.write('Пожалуйста, подождите, пока сгенерируются упражнения...')
-    df = eeg.create_sentence(uploaded_file)
-    df
+    df = eeg.create_sentence(stringio)
+    st.write(df)
     tasks = eeg.create_df(df)
     st.write(tasks)
     tasks['options'] = tasks.apply(lambda row: eval(row['options']), axis=1)
