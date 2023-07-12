@@ -19,12 +19,13 @@ class EngExerciseGen:
     # создаем датасет
     def create_sentence(self, file):
         data = pd.DataFrame()
-        for line in file:
-            line = line.strip()
-            if len(line)>0:
-                doc = nlp(line)
-                for sent in doc.sents:
-                    data.loc[len(data), 'raw'] = sent.text
+        with open(path) as file:
+            for line in file:
+                line = line.strip()
+                if len(line)>0:
+                    doc = nlp(line)
+                    for sent in doc.sents:
+                        data.loc[len(data), 'raw'] = sent.text
         return data
 
     # выбор упражнения случайным образом    

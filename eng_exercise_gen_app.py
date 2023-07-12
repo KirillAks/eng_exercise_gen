@@ -21,13 +21,13 @@ if uploaded_file is not None:
 
 if st.button('Сгенерировать упражнения'):
     st.write('Пожалуйста, подождите, пока сгенерируются упражнения...')
-    df = eeg.create_sentence(stringio)
+    df = eeg.create_sentence('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')
     st.write(df)
     tasks = eeg.create_df(df)
     st.write(tasks)
-    tasks['options'] = tasks.apply(lambda row: eval(row['options']), axis=1)
-    tasks['result'] = tasks.apply(lambda row: eval(row['result']), axis=1)
-    st.write(tasks)
+#     tasks['options'] = tasks.apply(lambda row: eval(row['options']), axis=1)
+#     tasks['result'] = tasks.apply(lambda row: eval(row['result']), axis=1)
+#     st.write(tasks)
     '---'
     st.header('Упражнения по английскому')
     '---'
