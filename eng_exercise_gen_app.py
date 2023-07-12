@@ -31,10 +31,25 @@ if uploaded_file is not None:
 #     st.write('Пожалуйста, подождите, пока сгенерируются упражнения...')
 
 
-if st.button('Сгенерировать упражнения'):
+# if st.button('Сгенерировать упражнения'):
+#     st.write('Пожалуйста, подождите, пока сгенерируются упражнения...')
+#     df = eeg.create_sentence('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')    
+#     tasks = eeg.create_df(df)
+    
+if 'clicked' not in st.session_state:
+    st.session_state.clicked = False
+
+def click_button():
+    st.session_state.clicked = True
+
+st.button('Click me', on_click=click_button)
+
+if st.session_state.clicked:
+    st.write('Сгенерировать упражнения!')
     st.write('Пожалуйста, подождите, пока сгенерируются упражнения...')
-    df = eeg.create_sentence('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')    
+    df = eeg.create_sentence('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')
     tasks = eeg.create_df(df)
+    st.slider('Select a value')
 
     '---'
     st.header('Упражнения по английскому')
