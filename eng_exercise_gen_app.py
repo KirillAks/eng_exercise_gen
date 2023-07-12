@@ -58,7 +58,7 @@ for i, row in tasks.iterrows():
         else:
             st.error('Mistake', icon="🤷‍♂️")
 
-    tasks['total'] = row['result'] == row['answer']
+#     tasks['total'] = row['result'] == row['answer']
     '---'    
 
 # total_sum = sum(tasks['total'])
