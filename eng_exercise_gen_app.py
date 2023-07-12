@@ -76,14 +76,14 @@ if st.session_state.button:
             else:
                 st.error('Mistake', icon="🤷‍♂️")
 
-        tasks['total'][i] = row['result'][i] == row['answer'][i]
+#         tasks['total'] = row['result'] == row['answer']
         '---'    
 
-    total_sum = sum(tasks['total'])
+#     total_sum = sum(tasks['total'])
 
-    if total_sum == len(tasks):
-        st.success('Поздравляем! Вы ответили на все вопросы!')
-        st.balloons()
+#     if total_sum == len(tasks):
+#         st.success('Поздравляем! Вы ответили на все вопросы!')
+#         st.balloons()
 else:
     st.write('Button is off!')    
 
