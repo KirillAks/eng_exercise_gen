@@ -19,13 +19,15 @@ if uploaded_file is not None:
     string_data = stringio.read()
     st.write(string_data)
 
-if st.button('Сгенерировать упражнения'):
-    st.write('Пожалуйста, подождите, пока сгенерируются упражнения...')
-    df = eeg.create_sentence('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')
-    st.write(df)
-    tasks = eeg.create_df(df)
-    st.write(tasks)
+# if st.button('Сгенерировать упражнения'):
+#     st.write('Пожалуйста, подождите, пока сгенерируются упражнения...')
+#     df = eeg.create_sentence('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')
+#     st.write(df)
+#     tasks = eeg.create_df(df)
+#     st.write(tasks)
 
+df = eeg.create_sentence('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')
+tasks = eeg.create_df(df)
 '---'
 st.header('Упражнения по английскому')
 '---'
