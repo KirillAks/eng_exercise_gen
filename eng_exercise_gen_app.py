@@ -25,46 +25,44 @@ if st.button('Сгенерировать упражнения'):
     st.write(df)
     tasks = eeg.create_df(df)
     st.write(tasks)
-#     tasks['options'] = tasks.apply(lambda row: eval(row['options']), axis=1)
-#     tasks['result'] = tasks.apply(lambda row: eval(row['result']), axis=1)
-#     st.write(tasks)
-    '---'
-    st.header('Упражнения по английскому')
-    '---'
-    for i, row in tasks.iterrows():
-        st.subheader(row['description']) 
 
-        col1, col2 = st.columns(2)
-        with col1:
-            st.write('')
-            st.write(row['sent_ex'])
+'---'
+st.header('Упражнения по английскому')
+'---'
+for i, row in tasks.iterrows():
+    st.subheader(row['description']) 
 
-        with col2:
-            option = row['options']
-            if row['type']=='missing_word':
-                text = '–––' 
-                row['result'] = st.text_area("Напишите ответ:", text, key=f"{i+20}")
-            else:
-                row['result'] = st.selectbox(
-                    'nolabel',
-                    ['–––'] + option,
-                    key = f"{i}",
-                    label_visibility="hidden",
-                ) 
-            if row['result'] == '–––':
-                pass
-            elif row['result'] == row['answer']:
-                st.success('Correctly', icon="💪")
-            else:
-                st.error('Mistake', icon="🤷‍♂️")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write('')
+        st.write(row['sent_ex'])
 
-#         tasks['total'] = row['result'] == row['answer']
-#         '---'    
+    with col2:
+        option = row['options']
+        if row['type']=='missing_word':
+            text = '–––' 
+            row['result'] = st.text_area("Напишите ответ:", text, key=f"{i+20}")
+        else:
+            row['result'] = st.selectbox(
+                'nolabel',
+                ['–––'] + option,
+                key = f"{i}",
+                label_visibility="hidden",
+            ) 
+        if row['result'] == '–––':
+            pass
+        elif row['result'] == row['answer']:
+            st.success('Correctly', icon="💪")
+        else:
+            st.error('Mistake', icon="🤷‍♂️")
 
-#     total_sum = sum(tasks['total'])
+    tasks['total'] = row['result'] == row['answer']
+    '---'    
 
-#     if total_sum == len(tasks):
-#         st.success('Поздравляем! Вы ответили на все вопросы!')
-#         st.balloons()
+total_sum = sum(tasks['total'])
+
+if total_sum == len(tasks):
+    st.success('Поздравляем! Вы ответили на все вопросы!')
+    st.balloons()
     
 
