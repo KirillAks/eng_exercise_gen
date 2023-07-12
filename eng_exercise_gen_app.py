@@ -42,7 +42,7 @@ for i, row in tasks.iterrows():
     with col2:
         option = row['options']
         if row['type']=='missing_word':
-            text = '–––' 
+            text = '–––'
             row['result'] = st.text_area("Напишите ответ:", text, key=f"{i+20}")
         else:
             row['result'] = st.selectbox(
@@ -61,10 +61,10 @@ for i, row in tasks.iterrows():
     tasks['total'] = row['result'] == row['answer']
     '---'    
 
-total_sum = sum(tasks['total'])
+# total_sum = sum(tasks['total'])
 
-if total_sum == len(tasks):
-    st.success('Поздравляем! Вы ответили на все вопросы!')
-    st.balloons()
+# if total_sum == len(tasks):
+#     st.success('Поздравляем! Вы ответили на все вопросы!')
+#     st.balloons()
     
 
