@@ -17,7 +17,7 @@ model = api.load("glove-wiki-gigaword-200")
 # создаем класс
 class EngExerciseGen:
     # создаем датасет
-    def create_sentence(self, file):
+    def create_sentence(self, path):
         data = pd.DataFrame()
         with open(path) as file:
             for line in file:
