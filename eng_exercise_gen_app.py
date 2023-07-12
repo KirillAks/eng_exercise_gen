@@ -18,9 +18,17 @@ if uploaded_file is not None:
     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
     string_data = stringio.read()
     st.write(string_data)
+    
+generation = st.radio(
+    "Сгенерировать упражнения?",
+    ('Да, я хочу выполнить упражнения', 'Нет, хочу прочитать текст ещё раз'))
 
-if st.button('Сгенерировать упражнения'):
+if generation == 'Да, я хочу выполнить упражнения':
     st.write('Пожалуйста, подождите, пока сгенерируются упражнения...')
+
+
+# if st.button('Сгенерировать упражнения'):
+#     st.write('Пожалуйста, подождите, пока сгенерируются упражнения...')
     df = eeg.create_sentence('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')    
     tasks = eeg.create_df(df)
 
@@ -62,4 +70,7 @@ if st.button('Сгенерировать упражнения'):
     if total_sum == len(tasks):
         st.success('Поздравляем! Вы ответили на все вопросы!')
         st.balloons()
+
+else:
+    st.write("Повторите текст")
 
