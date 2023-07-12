@@ -36,15 +36,15 @@ if uploaded_file is not None:
 #     df = eeg.create_sentence('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')    
 #     tasks = eeg.create_df(df)
     
-if 'clicked' not in st.session_state:
-    st.session_state.clicked = False
+if 'button' not in st.session_state:
+    st.session_state.button = False
 
 def click_button():
-    st.session_state.clicked = True
+    st.session_state.button = not st.session_state.button
 
 st.button('Сгенерировать упражнения', on_click=click_button)
 
-if st.session_state.clicked:    
+if st.session_state.button:
     st.write('Пожалуйста, подождите, пока сгенерируются упражнения...')
     df = eeg.create_sentence('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')
     tasks = eeg.create_df(df) 
@@ -84,4 +84,6 @@ if st.session_state.clicked:
     if total_sum == len(tasks):
         st.success('Поздравляем! Вы ответили на все вопросы!')
         st.balloons()
+else:
+    st.write('Button is off!')    
 
