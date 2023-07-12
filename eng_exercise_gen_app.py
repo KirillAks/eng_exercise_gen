@@ -58,15 +58,13 @@ if st.button('Сгенерировать упражнения'):
             else:
                 st.error('Mistake', icon="🤷‍♂️")
 
-        tasks['total'] = row['result'] == row['answer']
-        '---'    
+#         tasks['total'] = row['result'] == row['answer']
+#         '---'    
 
-    total_sum = sum(tasks['total'])
+#     total_sum = sum(tasks['total'])
 
-    if total_sum == len(tasks):
-        st.success('Поздравляем! Вы ответили на все вопросы!')
-        st.balloons()
+#     if total_sum == len(tasks):
+#         st.success('Поздравляем! Вы ответили на все вопросы!')
+#         st.balloons()
     
-else:
-    st.write('Тогда, в другой раз...')
 
