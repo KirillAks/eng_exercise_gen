@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 import pandas as pd
@@ -41,10 +41,18 @@ if uploaded_file is not None:
 # if st.session_state.button:
 #     st.write('Пожалуйста, подождите, пока сгенерируются упражнения...')
 #     df = eeg.create_sentence('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')
-#     tasks = eeg.create_df(df) 
+#     tasks = eeg.create_df(df)
 
-df = eeg.create_sentence('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')
-tasks = eeg.create_df(df)
+@st.cache_data
+def create_exercises(path):
+    df = eeg.create_sentence(path)
+    tasks = eeg.create_df(df)
+    return tasks
+tasks = create_exercises('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')
+
+
+# df = eeg.create_sentence('Little_Red_Cap_ Jacob_and_Wilhelm_Grimm.txt')
+# tasks = eeg.create_df(df)
 '---'
 for i, row in tasks.iterrows():
     st.subheader(row['description']) 
